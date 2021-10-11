@@ -1,0 +1,47 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: authorization-service
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  #db ??
+  datasource:
+    url: jdbc:h2:~/smartcity/auth;
+    driver-class-name: org.h2.Driver
+    username: "{cipher}AQAUU/Sz0QA6RhW8DpZwbvAzEckvQsCp6yCBJw4IijPmfGCr2hK0JKtlpMVyFqdoWzqk8jFPbYc5skr1Fjlk8DNnIOq5zx4wPQ4+ZlgL/lvW041gm9tZkTZDXfgcjh4/m6H/zhmNmvIlcHSFxJmIqoTdy2fo+kOq5xYFsZsFelkTJ+nraer42BacteUhAVbkLDBcXDvkggvrVBVKpFVo+ifC601WX3G9jN3ogSUGTk8HPznboXnCKP566CwLkSAUm0F7XHslZhYU+Z5zBWsui4P44d7kQu8+ZRQgstJHRg3ZquJhQijtPZOcEhP1Gh3WZpMVJkZcUHkLXkvjINlCtcIXYeIbPYYrMnBPBru5exLfFHP/K52QufvsQ0KCOTJoEqM="
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        show_sql: true
+    hibernate:
+      ddl-auto: update
+  #      naming:
+  #       physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    enabled: true
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh, info, metrics, prometheus

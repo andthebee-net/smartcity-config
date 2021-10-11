@@ -1,0 +1,52 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: apigateway-service
+
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
+        #filters:
+        #  - GlobalFilter=Spring Cloud Gateway Global Filter, true, true
+      routes:
+        - id: authorization-service
+          uri: lb://AUTHORIZATION-SERVICE
+          predicates:
+            - Path=/authorization-service/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/authorization-service/(?<segment>.*), /$\{segment}
+
+        - id: front-service
+          uri: lb://FRONT-SERVICE
+          predicates:
+            - Path=/front-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/front-service/(?<segment>.*), /$\{segment}
+
+        - id: front-service
+          uri: lb://FRONT-SERVICE
+          predicates:
+            - Path=/front-service/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/front-service/(?<segment>.*), /$\{segment}
+            # - JwtRequestFilter
+            # shortcutField 사용
+            - Logging
+            - OrderedLogging=OrderedLogging Gateway Custom Filter, true, true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus

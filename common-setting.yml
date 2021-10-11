@@ -1,0 +1,23 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: smartcity
+    password: "{cipher}AQBhbyoPHsHD6vU/qIhedGpNjLpbXfoL6jBAPTmbkYfcXn4KkGFVemb3HPnVqUazagGXBpXWeq1uLQ9gkt0dZpvNfgpjWoOaCpNjJEKptRAXTDCQse6sBBG1EwqdO1+2G45OJg6mpJq08riukOAmxqCDp4ww9GnL0y2wQUHO+yaXy/oNaPZPOizWpjKDQUuYjnNjqwYgRVgtamMv2N2G5p+w+mEswUcVfEVyXXKIL0hoi6iC6IYx1nR52PWWkMLfYjk4ORXq/2fmTNZTcVcSMgBAuJMBccWLRQODB8A8Di6Nem9GUrKi3ttW+iYRE6UJZ371clY0tYxm/h3DkYBxHXxByDzkfoCB/dHUIZXFbpl8DwUqBP4uIqCgKMletoAdAiQ="
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+message:
+  status: OK
+  test: afafasfasfasdsfdsfdsfdsfd
+token:
+  expiration_time: 864000000
+  secret: smartcity_sdkemqq239kdfm3rm_token_obirwydk20211008
+
+gateway:
+  ip: 0.0.0.0
