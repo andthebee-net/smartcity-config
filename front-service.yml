@@ -1,19 +1,22 @@
 server:
   port: 0
 
-file:
-  path: /Users/eojin/git/e8-smart-city/temp/file
-  cdn: /Users/eojin/git/e8-smart-city/temp/cdn
-
 spring:
   application:
-    name: file-service
+    name: front-service
 
   datasource:
     url: jdbc:mariadb://110.10.130.100:3306/smartcity
     driver-class-name: org.mariadb.jdbc.Driver
     username: smartcity
     password: "{cipher}AQBhbyoPHsHD6vU/qIhedGpNjLpbXfoL6jBAPTmbkYfcXn4KkGFVemb3HPnVqUazagGXBpXWeq1uLQ9gkt0dZpvNfgpjWoOaCpNjJEKptRAXTDCQse6sBBG1EwqdO1+2G45OJg6mpJq08riukOAmxqCDp4ww9GnL0y2wQUHO+yaXy/oNaPZPOizWpjKDQUuYjnNjqwYgRVgtamMv2N2G5p+w+mEswUcVfEVyXXKIL0hoi6iC6IYx1nR52PWWkMLfYjk4ORXq/2fmTNZTcVcSMgBAuJMBccWLRQODB8A8Di6Nem9GUrKi3ttW+iYRE6UJZ371clY0tYxm/h3DkYBxHXxByDzkfoCB/dHUIZXFbpl8DwUqBP4uIqCgKMletoAdAiQ="
+
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    enabled: true
+  sleuth:
+    sampler:
+      probability: 1.0
 
 eureka:
   instance:
@@ -23,4 +26,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans, busrefresh
+        include: refresh, health, beans, busrefresh, info, metrics, prometheus
+
+#kafka 설정
+kafka:
+  bootstrap-address: 127.0.0.1:9092
+  topic:
+    message: message
+    greeting: greeting git hub
