@@ -33,4 +33,4 @@ kafka:
   bootstrap-address: 127.0.0.1:9092
   topic:
     message: message
-    greeting: greeting
+    greeting: greeting git hub
