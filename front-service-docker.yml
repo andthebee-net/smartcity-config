@@ -12,7 +12,7 @@ spring:
     password: "{cipher}AQBhbyoPHsHD6vU/qIhedGpNjLpbXfoL6jBAPTmbkYfcXn4KkGFVemb3HPnVqUazagGXBpXWeq1uLQ9gkt0dZpvNfgpjWoOaCpNjJEKptRAXTDCQse6sBBG1EwqdO1+2G45OJg6mpJq08riukOAmxqCDp4ww9GnL0y2wQUHO+yaXy/oNaPZPOizWpjKDQUuYjnNjqwYgRVgtamMv2N2G5p+w+mEswUcVfEVyXXKIL0hoi6iC6IYx1nR52PWWkMLfYjk4ORXq/2fmTNZTcVcSMgBAuJMBccWLRQODB8A8Di6Nem9GUrKi3ttW+iYRE6UJZ371clY0tYxm/h3DkYBxHXxByDzkfoCB/dHUIZXFbpl8DwUqBP4uIqCgKMletoAdAiQ="
 
   zipkin:
-    base-url: http://127.0.0.1:9411
+    base-url: http://zipkin:9411
     enabled: true
   sleuth:
     sampler:
@@ -30,7 +30,11 @@ management:
 
 #kafka 설정
 kafka:
-  bootstrap-address: 127.0.0.1:9092
+  bootstrap-address: kafka:9092
   topic:
     message: message
     greeting: greeting git hub
+logging:
+  file: /api-logs/front-api.log
+  level:
+    kr.co.e8.smartcity.front.kafka: DEBUG
