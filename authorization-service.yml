@@ -1,47 +1,29 @@
 server:
-  port: 0
+  port: 8333
 
+  #h2:
+  #  console:
+  #    enabled: true
+  #    path: /h2-console
+  #    settings:
+  #      web-allow-others: true
 spring:
-  application:
-    name: authorization-service
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        web-allow-others: true
-  #db ??
-  datasource:
-    url: jdbc:h2:~/smartcity/auth;
-    driver-class-name: org.h2.Driver
-    username: "{cipher}AQAUU/Sz0QA6RhW8DpZwbvAzEckvQsCp6yCBJw4IijPmfGCr2hK0JKtlpMVyFqdoWzqk8jFPbYc5skr1Fjlk8DNnIOq5zx4wPQ4+ZlgL/lvW041gm9tZkTZDXfgcjh4/m6H/zhmNmvIlcHSFxJmIqoTdy2fo+kOq5xYFsZsFelkTJ+nraer42BacteUhAVbkLDBcXDvkggvrVBVKpFVo+ifC601WX3G9jN3ogSUGTk8HPznboXnCKP566CwLkSAUm0F7XHslZhYU+Z5zBWsui4P44d7kQu8+ZRQgstJHRg3ZquJhQijtPZOcEhP1Gh3WZpMVJkZcUHkLXkvjINlCtcIXYeIbPYYrMnBPBru5exLfFHP/K52QufvsQ0KCOTJoEqM="
-    password:
+  r2dbc:
+    url: r2dbc:postgresql://110.10.130.100:5432/ndxpro
+    username: "ndxpro"
+    password: "!1234"
+    #username: "{cipher}AQAeNcx1WHhnCstkWb8zqqnpnb2SpStxr0S6SDOlZlU0JVLm7mh+zWjjq6O6xOrkpko0mc7G9MVnxkbk5RQvi8MOWyX/EX0TWA8yVpvIq68q/SNDnpxzLfHNeWz+MsZLYUZ+QIR4qSyv9c1iMrjHNvIDf0adkKMSHppjdH0QfKavxkfDJubKtyG3esuGDgB2WwSZjMx8cdi0CrPR1v/oIowxAqigyo4k2fb7KNl6Qc5M+eK5FtukLnAvw5FP2GcMgjxcfq4f5id1NJ3x6P/b5jXt6jMQ0oQkVuli8IHQBEzOoCSWGanJKzdiwmBnVP2pXVEdf9ubRq4WzfeG0woCu6VxUPH3prU1pmpcYBNm1k61LizocKnNF3Oz6h/9BEqneng="
+    #password: "{cipher}AQAe7LkHVDE/DHGJZGqi/zULlH8tjVJ5IkGKun842Ppqysp8S7DZRBRP3yMxVVgTqN5WjTT1baVc/uvHeEvNEizZx2QIcRvA4WdTGsKdd8e/fuymegXoalC1BPSmAGSvBv2tVBerJy8Lz7DuFQM1/Sr92GAuYQR3QDd6bdesB4/bGxdtjx9E2VvTrbnrAx4u7enTf93JtqtGavXRSB10+XjlSMwfXqZzlOIbeJ+vWH2t1K+CJQEE519+xxlQK633EnaZLS0KcTVwIIBQ/W+qda2GoWNoKMul09/FWwbZVXQ18MNVhox1j6/95kQJfCk4iRnZep7HM2V+JbIszbILaPYkOHhcZPpCuQBMMhoYX6T6EViMpEVf6JFuAHSecXqXyco="    
+    initialization-mode: always
 
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-        format_sql: true
-        show_sql: true
-    hibernate:
-      ddl-auto: update
-  #      naming:
-  #       physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-
-  zipkin:
-    base-url: http://127.0.0.1:9411
-    enabled: true
-  sleuth:
-    sampler:
-      probability: 1.0
+    
 
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh, health, beans, busrefresh, info, metrics, prometheus
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh, health, beans, busrefresh, info, metrics, prometheus
