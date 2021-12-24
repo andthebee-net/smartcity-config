@@ -2,8 +2,10 @@ spring:
   rabbitmq:
     host: 127.0.0.1
     port: 5672
-    username: smartcity
-    password: "{cipher}AQBhbyoPHsHD6vU/qIhedGpNjLpbXfoL6jBAPTmbkYfcXn4KkGFVemb3HPnVqUazagGXBpXWeq1uLQ9gkt0dZpvNfgpjWoOaCpNjJEKptRAXTDCQse6sBBG1EwqdO1+2G45OJg6mpJq08riukOAmxqCDp4ww9GnL0y2wQUHO+yaXy/oNaPZPOizWpjKDQUuYjnNjqwYgRVgtamMv2N2G5p+w+mEswUcVfEVyXXKIL0hoi6iC6IYx1nR52PWWkMLfYjk4ORXq/2fmTNZTcVcSMgBAuJMBccWLRQODB8A8Di6Nem9GUrKi3ttW+iYRE6UJZ371clY0tYxm/h3DkYBxHXxByDzkfoCB/dHUIZXFbpl8DwUqBP4uIqCgKMletoAdAiQ="
+    username: ndxpro
+    password: "{cipher}AQBIByLZWmxUlgBO+EoOd7nhPq5U6kcb1dNIf0yzOE5XXQV9VHxgbO9YLfhiROQ4pFjBU3peEdRAyv/eL41CF57lN+ajBofCHtDKF2Wlp59RcLMXD8uBkTTmY9RHX/VWlJzW03rursA7UW1pPTDY0qDQLvCRaI0DzgUrg/RhvpBIJgw7QCJR/86eHEWoRKx/gnyYCFGRvw39lO8c428JazbdvubueEuVY/Doc3ls7i8u10ANo27pH+meWQaSxs8kH0DOaU7EyCN75Y2/cojfe2Xg0ke/eiaWnlMuN+aRMr2ztVosU8eeoVyIuRLcAdpVFsQYlFMZ+xAs7HoaPD1IXkzmLQJqfQtq5xJPnwaEs6YdNUiQQ/HpYM0pFDIpfDJqsQ4="
+    #username: smartcity
+    #password: "{cipher}AQBhbyoPHsHD6vU/qIhedGpNjLpbXfoL6jBAPTmbkYfcXn4KkGFVemb3HPnVqUazagGXBpXWeq1uLQ9gkt0dZpvNfgpjWoOaCpNjJEKptRAXTDCQse6sBBG1EwqdO1+2G45OJg6mpJq08riukOAmxqCDp4ww9GnL0y2wQUHO+yaXy/oNaPZPOizWpjKDQUuYjnNjqwYgRVgtamMv2N2G5p+w+mEswUcVfEVyXXKIL0hoi6iC6IYx1nR52PWWkMLfYjk4ORXq/2fmTNZTcVcSMgBAuJMBccWLRQODB8A8Di6Nem9GUrKi3ttW+iYRE6UJZ371clY0tYxm/h3DkYBxHXxByDzkfoCB/dHUIZXFbpl8DwUqBP4uIqCgKMletoAdAiQ="
 
 eureka:
   client:
