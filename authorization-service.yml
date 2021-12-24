@@ -1,29 +1,18 @@
 server:
   port: 8333
 
-  #h2:
-  #  console:
-  #    enabled: true
-  #    path: /h2-console
-  #    settings:
-  #      web-allow-others: true
-spring:
-  r2dbc:
-    url: r2dbc:postgresql://110.10.130.100:5432/ndxpro
-    username: "ndxpro"
-    password: "!1234"
-    #username: "{cipher}AQAeNcx1WHhnCstkWb8zqqnpnb2SpStxr0S6SDOlZlU0JVLm7mh+zWjjq6O6xOrkpko0mc7G9MVnxkbk5RQvi8MOWyX/EX0TWA8yVpvIq68q/SNDnpxzLfHNeWz+MsZLYUZ+QIR4qSyv9c1iMrjHNvIDf0adkKMSHppjdH0QfKavxkfDJubKtyG3esuGDgB2WwSZjMx8cdi0CrPR1v/oIowxAqigyo4k2fb7KNl6Qc5M+eK5FtukLnAvw5FP2GcMgjxcfq4f5id1NJ3x6P/b5jXt6jMQ0oQkVuli8IHQBEzOoCSWGanJKzdiwmBnVP2pXVEdf9ubRq4WzfeG0woCu6VxUPH3prU1pmpcYBNm1k61LizocKnNF3Oz6h/9BEqneng="
-    #password: "{cipher}AQAe7LkHVDE/DHGJZGqi/zULlH8tjVJ5IkGKun842Ppqysp8S7DZRBRP3yMxVVgTqN5WjTT1baVc/uvHeEvNEizZx2QIcRvA4WdTGsKdd8e/fuymegXoalC1BPSmAGSvBv2tVBerJy8Lz7DuFQM1/Sr92GAuYQR3QDd6bdesB4/bGxdtjx9E2VvTrbnrAx4u7enTf93JtqtGavXRSB10+XjlSMwfXqZzlOIbeJ+vWH2t1K+CJQEE519+xxlQK633EnaZLS0KcTVwIIBQ/W+qda2GoWNoKMul09/FWwbZVXQ18MNVhox1j6/95kQJfCk4iRnZep7HM2V+JbIszbILaPYkOHhcZPpCuQBMMhoYX6T6EViMpEVf6JFuAHSecXqXyco="    
-    initialization-mode: always
-
-    
+db:
+  master:
+    url: r2dbc:pool:postgres://110.10.130.100:5432
+    database: ndxpro
+    user: "{cipher}AQAeNcx1WHhnCstkWb8zqqnpnb2SpStxr0S6SDOlZlU0JVLm7mh+zWjjq6O6xOrkpko0mc7G9MVnxkbk5RQvi8MOWyX/EX0TWA8yVpvIq68q/SNDnpxzLfHNeWz+MsZLYUZ+QIR4qSyv9c1iMrjHNvIDf0adkKMSHppjdH0QfKavxkfDJubKtyG3esuGDgB2WwSZjMx8cdi0CrPR1v/oIowxAqigyo4k2fb7KNl6Qc5M+eK5FtukLnAvw5FP2GcMgjxcfq4f5id1NJ3x6P/b5jXt6jMQ0oQkVuli8IHQBEzOoCSWGanJKzdiwmBnVP2pXVEdf9ubRq4WzfeG0woCu6VxUPH3prU1pmpcYBNm1k61LizocKnNF3Oz6h/9BEqneng="
+    password: "{cipher}AQAe7LkHVDE/DHGJZGqi/zULlH8tjVJ5IkGKun842Ppqysp8S7DZRBRP3yMxVVgTqN5WjTT1baVc/uvHeEvNEizZx2QIcRvA4WdTGsKdd8e/fuymegXoalC1BPSmAGSvBv2tVBerJy8Lz7DuFQM1/Sr92GAuYQR3QDd6bdesB4/bGxdtjx9E2VvTrbnrAx4u7enTf93JtqtGavXRSB10+XjlSMwfXqZzlOIbeJ+vWH2t1K+CJQEE519+xxlQK633EnaZLS0KcTVwIIBQ/W+qda2GoWNoKMul09/FWwbZVXQ18MNVhox1j6/95kQJfCk4iRnZep7HM2V+JbIszbILaPYkOHhcZPpCuQBMMhoYX6T6EViMpEVf6JFuAHSecXqXyco="
+  slave:
+    url: r2dbc:pool:postgres://110.10.130.100:5432
+    database: pgadmin
+    user: "{cipher}AQAeNcx1WHhnCstkWb8zqqnpnb2SpStxr0S6SDOlZlU0JVLm7mh+zWjjq6O6xOrkpko0mc7G9MVnxkbk5RQvi8MOWyX/EX0TWA8yVpvIq68q/SNDnpxzLfHNeWz+MsZLYUZ+QIR4qSyv9c1iMrjHNvIDf0adkKMSHppjdH0QfKavxkfDJubKtyG3esuGDgB2WwSZjMx8cdi0CrPR1v/oIowxAqigyo4k2fb7KNl6Qc5M+eK5FtukLnAvw5FP2GcMgjxcfq4f5id1NJ3x6P/b5jXt6jMQ0oQkVuli8IHQBEzOoCSWGanJKzdiwmBnVP2pXVEdf9ubRq4WzfeG0woCu6VxUPH3prU1pmpcYBNm1k61LizocKnNF3Oz6h/9BEqneng="
+    password: "{cipher}AQAe7LkHVDE/DHGJZGqi/zULlH8tjVJ5IkGKun842Ppqysp8S7DZRBRP3yMxVVgTqN5WjTT1baVc/uvHeEvNEizZx2QIcRvA4WdTGsKdd8e/fuymegXoalC1BPSmAGSvBv2tVBerJy8Lz7DuFQM1/Sr92GAuYQR3QDd6bdesB4/bGxdtjx9E2VvTrbnrAx4u7enTf93JtqtGavXRSB10+XjlSMwfXqZzlOIbeJ+vWH2t1K+CJQEE519+xxlQK633EnaZLS0KcTVwIIBQ/W+qda2GoWNoKMul09/FWwbZVXQ18MNVhox1j6/95kQJfCk4iRnZep7HM2V+JbIszbILaPYkOHhcZPpCuQBMMhoYX6T6EViMpEVf6JFuAHSecXqXyco="
 
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: refresh, health, beans, busrefresh, info, metrics, prometheus
